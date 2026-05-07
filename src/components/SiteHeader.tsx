@@ -15,7 +15,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link to="/" className="font-serif text-2xl tracking-wide text-primary">
-          Aurélie <span className="italic text-accent-foreground/70">Bridal</span>
+          Lūme <span className="italic text-accent-foreground/80">&amp; Co.</span>
         </Link>
         <nav className="hidden gap-10 md:flex">
           {links.map((l) => (
@@ -51,21 +51,21 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-border/50 bg-secondary/30">
       <div className="mx-auto grid max-w-6xl gap-8 px-6 py-12 md:grid-cols-3">
         <div>
-          <h3 className="font-serif text-2xl text-primary">Aurélie Bridal</h3>
-          <p className="mt-2 text-sm text-muted-foreground">Where every bride's story begins.</p>
+          <h3 className="font-serif text-2xl text-primary">Lūme &amp; Co.</h3>
+          <p className="mt-2 text-sm text-muted-foreground">A modern beauty &amp; spa sanctuary.</p>
         </div>
         <div className="text-sm text-muted-foreground">
-          <p>123 Rosewood Avenue</p>
-          <p>New York, NY 10012</p>
-          <p className="mt-2">Tue – Sat · 10am – 7pm</p>
+          <p>42 Linden Boulevard</p>
+          <p>Brooklyn, NY 11201</p>
+          <p className="mt-2">Mon – Sun · 9am – 9pm</p>
         </div>
         <div className="text-sm text-muted-foreground">
-          <p>hello@aureliebridal.com</p>
-          <p>+1 (212) 555-0188</p>
+          <p>hello@lumeand.co</p>
+          <p>+1 (718) 555-0142</p>
         </div>
       </div>
       <div className="border-t border-border/40 py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Aurélie Bridal Studio. All rights reserved.
+        © {new Date().getFullYear()} Lūme &amp; Co. Beauty &amp; Spa. All rights reserved.
       </div>
     </footer>
   );

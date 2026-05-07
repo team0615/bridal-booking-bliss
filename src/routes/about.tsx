@@ -5,8 +5,8 @@ import about from "@/assets/about.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Aurélie Bridal Studio" },
-      { name: "description", content: "Learn about Aurélie Bridal — a family-run atelier crafting timeless gowns since 2008." },
+      { title: "About — Lūme & Co." },
+      { name: "description", content: "Lūme & Co. is a modern Brooklyn-based beauty and spa sanctuary founded in 2017." },
     ],
   }),
   component: About,
@@ -20,23 +20,23 @@ function About() {
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Our Story</p>
             <h1 className="mt-4 font-serif text-5xl leading-tight text-primary md:text-6xl">
-              A quiet atelier, <em className="italic text-accent-foreground">rooted in craft.</em>
+              Beauty rituals, <em className="italic text-accent-foreground">slowed down.</em>
             </h1>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-              <p>Founded in 2008 by mother-and-daughter duo Aurélie and Camille Laurent, our studio began as a small dressmaker's workshop in the West Village.</p>
-              <p>Today, we've dressed over 1,200 brides — yet our philosophy hasn't changed. Every gown is touched by hand, fitted in person, and made to feel as if it were always yours.</p>
-              <p>We believe a wedding gown should not just be worn; it should be remembered.</p>
+              <p>Lūme &amp; Co. opened in 2017 as a quiet rebellion against rushed appointments and one-size-fits-all beauty.</p>
+              <p>Our therapists take time — to listen, to understand, to tailor every treatment. We work with clean, plant-forward formulations and treat each chair like a small sanctuary.</p>
+              <p>Today, our Brooklyn studio welcomes hundreds of guests a week. Yet every visit still feels personal. That's the point.</p>
             </div>
           </div>
-          <img src={about} alt="Bride in a lace gown" loading="lazy" width={1024} height={1280} className="aspect-[4/5] w-full rounded-sm object-cover shadow-xl" />
+          <img src={about} alt="Glowing natural beauty portrait" loading="lazy" width={1024} height={1280} className="aspect-[4/5] w-full rounded-sm object-cover shadow-xl" />
         </div>
 
         <div className="mt-24 grid gap-8 border-t border-border/50 pt-12 md:grid-cols-4">
           {[
-            { k: "1,200+", v: "Brides dressed" },
-            { k: "16", v: "Years of craft" },
-            { k: "32", v: "Designers & seamstresses" },
-            { k: "48hr", v: "Average fitting turnaround" },
+            { k: "8 yrs", v: "Open in Brooklyn" },
+            { k: "20+", v: "Senior therapists" },
+            { k: "12k+", v: "Happy clients" },
+            { k: "100%", v: "Cruelty-free" },
           ].map((s) => (
             <div key={s.v}>
               <p className="font-serif text-4xl text-primary">{s.k}</p>

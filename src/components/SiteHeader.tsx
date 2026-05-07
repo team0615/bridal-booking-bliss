@@ -15,7 +15,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link to="/" className="font-serif text-2xl tracking-wide text-primary">
-          Aurélie <span className="italic text-accent-foreground/70">Bridal</span>
+          Lūme <span className="italic text-accent-foreground/80">&amp; Co.</span>
         </Link>
         <nav className="hidden gap-10 md:flex">
           {links.map((l) => (

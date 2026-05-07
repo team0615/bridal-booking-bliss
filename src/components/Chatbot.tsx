@@ -10,9 +10,9 @@ type Step = {
 };
 
 const steps: Step[] = [
-  { key: "service", question: "Lovely! Which service are you interested in?", options: ["Bridal Gown Fitting", "Custom Design Consultation", "Bridesmaid Styling", "Pre-Wedding Makeover"] },
-  { key: "date", question: "When would you like to visit us? (e.g. May 24, 2026)" },
-  { key: "time", question: "What time works best for you?", options: ["10:00 AM", "12:30 PM", "3:00 PM", "5:30 PM"] },
+  { key: "service", question: "Lovely! Which service would you like to book?", options: ["Facial", "Threading", "Haircut", "Spa & Massage", "Manicure", "Pedicure", "Bridal Makeup", "Waxing"] },
+  { key: "date", question: "When would you like to come in? (e.g. May 24, 2026)" },
+  { key: "time", question: "What time suits you best?", options: ["10:00 AM", "12:30 PM", "3:00 PM", "5:30 PM", "7:00 PM"] },
   { key: "name", question: "May I have your full name?" },
   { key: "phone", question: "And a phone number to confirm your booking?" },
 ];
@@ -20,7 +20,7 @@ const steps: Step[] = [
 export function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
-    { role: "bot", text: "Hi, I'm Élise 🌸 — your Aurélie Bridal concierge. I'd love to help you book an appointment." },
+    { role: "bot", text: "Hi, I'm Élise 🌿 — your Lūme & Co. concierge. I'd love to help you book your next visit." },
     { role: "bot", text: steps[0].question },
   ]);
   const [stepIdx, setStepIdx] = useState(0);

@@ -1,12 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell } from "@/components/PageShell";
-import hero from "@/assets/hero.jpg";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { services } from "@/lib/services-data";
+import { Leaf, Sparkles, Heart } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aurélie Bridal Studio — Timeless Gowns & Bespoke Moments" },
-      { name: "description", content: "A boutique bridal studio offering bespoke gowns, fittings, and styling for the modern bride." },
+      { title: "Lūme & Co. — Modern Beauty & Spa Sanctuary" },
+      { name: "description", content: "A modern beauty and spa sanctuary offering facials, hair, nails, massage, bridal makeup and more." },
     ],
   }),
   component: Home,
@@ -15,54 +17,72 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <PageShell>
-      <section className="relative overflow-hidden">
-        <div className="grid gap-10 px-6 pb-20 pt-12 md:grid-cols-2 md:items-center md:px-12 lg:px-20 lg:pt-20">
-          <div className="space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Est. 2008 · New York</p>
-            <h1 className="font-serif text-5xl leading-[1.05] text-primary md:text-6xl lg:text-7xl">
-              Where every bride's <em className="italic text-accent-foreground">story</em> begins.
-            </h1>
-            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
-              Aurélie is a boutique bridal studio creating bespoke gowns and intimate fitting experiences for the modern, discerning bride.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link to="/services" className="rounded-full bg-primary px-7 py-3 text-sm uppercase tracking-[0.18em] text-primary-foreground transition-opacity hover:opacity-90">
-                Our Services
-              </Link>
-              <Link to="/contact" className="rounded-full border border-primary px-7 py-3 text-sm uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
-                Book a Visit
-              </Link>
-            </div>
+      <HeroCarousel />
+
+      {/* Intro */}
+      <section className="texture-grain border-b border-border/50 bg-secondary/30">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-3 md:items-start">
+          <div className="md:col-span-1">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Welcome to Lūme</p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight text-primary md:text-5xl">
+              Quietly modern. <em className="italic text-accent-foreground">Endlessly considered.</em>
+            </h2>
           </div>
-          <div className="relative">
-            <div className="absolute -left-4 -top-4 h-full w-full rounded-sm border border-accent/60" />
-            <img src={hero} alt="Bridal studio interior with elegant wedding gown" width={1536} height={1024} className="relative aspect-[4/5] w-full rounded-sm object-cover shadow-xl" />
+          <div className="md:col-span-2 grid gap-8 sm:grid-cols-3">
+            {[
+              { I: Leaf, t: "Clean Beauty", d: "Plant-forward, cruelty-free formulations." },
+              { I: Sparkles, t: "Master Therapists", d: "Senior-trained team with 8+ yrs experience." },
+              { I: Heart, t: "Personal Touch", d: "Every treatment shaped around you." },
+            ].map(({ I, t, d }) => (
+              <div key={t}>
+                <I size={22} className="text-accent-foreground" />
+                <h3 className="mt-3 font-serif text-xl text-primary">{t}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{d}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-border/50 bg-secondary/30 py-16">
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Our Promise</p>
-          <h2 className="mx-auto mt-4 max-w-3xl font-serif text-3xl text-primary md:text-4xl">
-            "Designed slowly, fitted with care, and worn with confidence on the most important day of your life."
-          </h2>
+      {/* Services preview */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="flex items-end justify-between gap-6">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Treatments</p>
+            <h2 className="mt-3 font-serif text-4xl text-primary md:text-5xl">Our signature services</h2>
+          </div>
+          <Link to="/services" className="hidden text-sm uppercase tracking-[0.18em] text-accent-foreground hover:text-primary md:inline">View all →</Link>
         </div>
-      </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-10 md:grid-cols-3">
-          {[
-            { n: "01", t: "Private Fittings", d: "One-on-one appointments in our serene atelier with a dedicated stylist." },
-            { n: "02", t: "Bespoke Design", d: "Co-create your dream gown from sketch to final stitch with our designers." },
-            { n: "03", t: "Lifetime Care", d: "Preservation, alterations, and care services long after your wedding day." },
-          ].map((f) => (
-            <div key={f.n} className="border-t border-accent/60 pt-6">
-              <p className="font-serif text-3xl text-accent-foreground">{f.n}</p>
-              <h3 className="mt-3 font-serif text-2xl text-primary">{f.t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.d}</p>
-            </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.slice(0, 4).map((s) => (
+            <article key={s.slug} className="group">
+              <div className="aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+                <img src={s.img} alt={s.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div className="mt-4 flex items-baseline justify-between">
+                <h3 className="font-serif text-xl text-primary">{s.title}</h3>
+                <span className="text-xs uppercase tracking-wider text-accent-foreground">{s.price}</span>
+              </div>
+              <p className="mt-1 text-sm text-muted-foreground">{s.duration}</p>
+            </article>
           ))}
+        </div>
+      </section>
+
+      {/* CTA banner */}
+      <section className="border-y border-border/50 bg-primary py-20 text-primary-foreground">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground/80">Book in seconds</p>
+          <h2 className="mt-4 font-serif text-4xl md:text-5xl">
+            Your next ritual is one chat away.
+          </h2>
+          <p className="mt-4 text-primary-foreground/80">
+            Tap the chat icon and let Élise help you book your perfect appointment in under a minute.
+          </p>
+          <Link to="/contact" className="mt-8 inline-block rounded-full border border-primary-foreground/40 px-8 py-3 text-sm uppercase tracking-[0.18em] hover:bg-primary-foreground hover:text-primary">
+            Visit Us
+          </Link>
         </div>
       </section>
     </PageShell>
